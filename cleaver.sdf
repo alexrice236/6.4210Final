@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='cleaver'>
+    <link name='cleaver'>
+      <inertial>
+        <pose>1.3341466888303204 11.682612474878535 0.14552649775686521 0 0 0</pose>
+        <mass>120088451.83914986</mass>
+        <inertia>
+          <ixx>92356583096.36017</ixx>
+          <ixy>-118777078534.00696</ixy>
+          <ixz>-1308647732.9386954</ixz>
+          <iyy>644039368567.2762</iyy>
+          <iyz>-522232551.3780312</iyz>
+          <izz>734601530006.1493</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>cleaver.obj</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>cleaver.obj</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>
